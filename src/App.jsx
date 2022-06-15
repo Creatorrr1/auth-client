@@ -40,7 +40,16 @@ export default function App() {
     fetch(`http://localhost:4000/login`, opts)
       .then((res) => res.json())
       .then((response) => {
-        setLoginResponse(`Welcome ${loginUser.username}!`);
+        localStorage.setItem(
+          "locallyStoreData",
+          "This is the data stored (this very comment is the retrieved data)"
+        );
+        // setLoginResponse(`Welcome ${loginUser.username}!`);
+        setLoginResponse(
+          `Welcome ${loginUser.username}!, ${localStorage.getItem(
+            "locallyStoreData"
+          )}!`
+        );
       });
   };
 
